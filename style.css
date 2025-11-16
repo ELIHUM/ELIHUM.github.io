@@ -1,0 +1,385 @@
+/* ============================================================
+   VARIABLES DES COULEURS (MODE CLAIR)
+============================================================ */
+:root {
+    --primary: #1d3557;
+    --secondary: #457b9d;
+    --accent: #e63946;
+    --light: #adc9e5;
+    --dark: #1d1f21;
+
+    --text-dark: #2b2d42;
+    --text-light: #555a63;
+
+    --radius: 10px;
+    --transition: 0.3s ease;
+}
+
+/* ============================================================
+   MODE SOMBRE → Mise à jour automatique des variables
+============================================================ */
+body.dark-mode {
+    --primary: #d3d7e1;
+    --secondary: #2d87c8;
+    --accent: #ff4d6d;
+    --light: #1a1b23;
+    --dark: #d0d7dd;
+
+    --text-dark: #e4e5ec;
+    --text-light: #c9cbe0;
+
+    background-color: #232730 !important;
+    color: var(--text-dark) !important;
+}
+
+/* ============================================================
+   RESET
+============================================================ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+/* ============================================================
+   BODY
+============================================================ */
+body {
+    padding-top: 90px;       /* Compense la navbar fixe */
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--light);
+    color: var(--text-dark);
+    transition: background var(--transition), color var(--transition);
+}
+
+/* Images */
+img { 
+    max-width: 100%; 
+    border-radius: var(--radius); 
+}
+
+/* Sections */
+section { padding: 100px 0; }
+
+.container {
+    width: 90%;
+    max-width: 1240px;
+    margin: auto;
+}
+
+/* ============================================================
+   TITRES
+============================================================ */
+.section-title h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--primary);
+    margin-bottom: 20px;
+}
+
+.section-title p {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 650px;
+    margin: auto;
+    font-size: 1.1rem;
+}
+
+/* ============================================================
+   NAVBAR
+============================================================ */
+header {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    background: rgba(254, 254, 254, 0.92);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    transition: var(--transition);
+}
+
+header.scrolled {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+/* NAVBAR sombre */
+body.dark-mode header {
+    background: rgba(20, 20, 25, 0.90) !important;
+}
+
+.logo {
+    font-size: 1.9rem;
+    font-weight: 800;
+    color: var(--primary);
+    text-decoration: none;
+}
+.logo span { color: var(--secondary); }
+
+.nav-link {
+    font-weight: 600;
+    color: var(--text-dark) !important;
+    transition: var(--transition);
+    margin: 0 10px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--secondary) !important;
+}
+
+/* Bouton hamburger blanc en dark mode */
+body.dark-mode .navbar-toggler {
+    background-color: #ffffff !important; /* fond blanc */
+    border-color: #ffffff !important;
+}
+/* Bouton dark mode */
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.4rem;
+    padding: 8px 12px;
+    border-radius: var(--radius);
+    background: var(--light);
+    color: var(--primary);
+    border: none;
+    transition: var(--transition);
+    margin-left: 15px;
+}
+.theme-toggle:hover {
+    background: var(--secondary);
+    color: white;
+}
+
+body.dark-mode .theme-toggle {
+    background: #11131a;
+    color: var(--primary);
+}
+
+/* ============================================================
+   HERO
+============================================================ */
+#accueil {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: var(--light);
+}
+
+/* HERO mode sombre */
+body.dark-mode #accueil {
+    background: linear-gradient(135deg, #0b0c10, #1a1b23) !important;
+}
+
+/* Image du hero */
+#accueil img {
+    border: 5px solid white;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+}
+
+/* Texte HERO */
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: var(--primary);
+}
+
+.hero-content .lead {
+    font-size: 1.2rem;
+    color: var(--text-light);
+}
+
+.slogan {
+    font-style: italic;
+    color: var(--secondary);
+}
+
+/* Boutons */
+.btn-primary {
+    background: var(--secondary);
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.btn-primary:hover {
+    background: var(--primary);
+    transform: translateY(-3px);
+}
+
+.btn-outline-primary {
+    border-color: var(--secondary);
+    color: var(--secondary);
+    padding: 12px 30px;
+    font-weight: 600;
+}
+.btn-outline-primary:hover {
+    background: var(--secondary);
+    border-color: var(--secondary);
+    color: white;
+}
+
+/* Boutons mode sombre */
+body.dark-mode .btn-outline-primary {
+    color: var(--primary) !important;
+    border-color: var(--primary);
+}
+body.dark-mode .btn-outline-primary:hover {
+    background: var(--primary);
+    color: white !important;
+}
+
+/* ============================================================
+   CARDS (À propos / projets / récompenses)
+============================================================ */
+.card {
+    border-radius: var(--radius);
+    background: white;
+    transition: var(--transition);
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Mode sombre */
+body.dark-mode .card {
+    background: #14151d;
+    color: var( --text-dark);
+    box-shadow: none;
+}
+
+/* ============================================================
+   COMPETENCES
+============================================================ */
+.skill-item { margin-bottom: 1.5rem; }
+
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+}
+.progress-bar {
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+.badge {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+body.dark-mode #competences.bg-light {
+    background-color: #11131a !important;
+}
+
+/* ============================================================
+   PROJETS - Carousel
+============================================================ */
+.carousel-item {
+    padding: 2rem 0;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-indicators button {
+    background-color: var(--secondary) !important;
+}
+
+
+/* ============================================================
+   RECOMPENSES
+============================================================ */
+.alert-info {
+    background: linear-gradient(135deg, #457b9d, #1d3557);
+    color: white;
+}
+body.dark-mode #recompenses.bg-light
+{
+    background-color:  #11131a !important;
+}
+
+/* ============================================================
+   CONTACT
+============================================================ */
+.form-control {
+    border-radius: var(--radius);
+    padding: 12px 15px;
+    border: 2px solid #e9ecef;
+    transition: var(--transition);
+}
+
+.form-control:focus {
+    border-color: var(--secondary);
+    box-shadow: 0 0 0 0.2rem rgba(69, 123, 157, 0.25);
+}
+
+/* Formulaire sombre */
+body.dark-mode .form-control {
+    background: #2b2d42;
+    border-color: #3c4150;
+    color: var(--text-dark);
+}
+
+body.dark-mode .form-control::placeholder {
+    color: #9db7ff;
+}
+/* ============================================================
+   FOOTER
+============================================================ */
+footer {
+    background: var(--primary) !important;
+    color: white !important;
+}
+
+body.dark-mode footer {
+    background: #0d0e14 !important;
+}
+
+/* Bouton GitHub lisible en mode sombre */
+body.dark-mode .btn-outline-dark {
+    color: #7e87ed !important;            /* texte blanc */
+    border-color: #ffffff !important;     /* contour blanc */
+    background-color: transparent !important;
+}
+
+/* Icône GitHub blanche */
+body.dark-mode .btn-outline-dark i {
+    color: #8579e2 !important;
+}
+
+/* Hover : effet propre */
+body.dark-mode .btn-outline-dark:hover {
+    background-color: #ffffff !important; /* fond blanc */
+    color: #000000 !important;            /* texte noir */
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+@media (max-width: 768px) {
+    .hero-content h1 { font-size: 2.4rem; }
+    .section-title h2 { font-size: 2.2rem; }
+
+    body { padding-top: 100px; }
+
+    .btn { width: 100%; margin-bottom: 1rem; }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 { font-size: 2rem; }
+}
+
+/* ============================================================
+   ACCESSIBILITÉ + AOS
+============================================================ */
+[data-aos] { transition-duration: 1s; }
+
+@media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation-duration: 0 !important; }
+}
+
+button:focus,
+a:focus,
+.form-control:focus {
+    outline: 2px solid var(--secondary);
+    outline-offset: 2px;
+}
